@@ -1,38 +1,21 @@
 package sorting;
 
-import static org.junit.Assert.assertNotNull;
-
-import java.util.Arrays;
-
 import org.junit.Test;
 
-import sorting.BubbleSortAlgorithm;
-import sorting.InsertionSort;
-import sorting.MergeSort;
-import sorting.SelectionSortAlgorithm;
-import sorting.SortingAlgorithm;
-import sorting.Strategy;
-import util.Helper;
+import java.util.Random;
 
 public class SortingAlgorithmTest {
 
-	private final int length = 10000000;
-	private final int[] initalList = util.Helper.TOOLS.generateListToSort(length);
 
-	Strategy[] sorting = { new BubbleSortAlgorithm(), new SelectionSortAlgorithm(), new InsertionSort(),
+	private final Strategy[] sorting = {new BubbleSort(), new SelectionSort(), new InsertionSort(),
 			new MergeSort() };
+	private final Strategy algorithm = sorting[0];
 
-	SortingAlgorithm algorithm = new SortingAlgorithm(sorting[1], initalList);
-
-	@Test
-	public void canCreateAlgorithm() {
-		assertNotNull(algorithm);
-	}
 
 	@Test
 	public void canSortList() throws Exception {
-		System.out.println(Arrays.toString(initalList));
-		int[] sortedList = algorithm.sort();
+		int length = 100;
+		int[] sortedList = algorithm.sort(generateList(length));
 
 		for (int i = 0; i < length - 1; i++) {
 			for (int j = i + 1; j < length; j++) {
@@ -44,21 +27,20 @@ public class SortingAlgorithmTest {
 				}
 			}
 		}
-		System.out.println(Arrays.toString(sortedList));
 	}
 
-	@Test
-	public void timeToExecute() {
+	public static int[] generateList(int length) {
+		int[] list = new int[length];
+		Random rand = new Random();
 
-		long startTime = System.nanoTime();
-
-		algorithm.sort();
-
-		long endTime = System.nanoTime();
-
-		double duration = (double) (endTime - startTime) / 1000000000;
-
-		System.out.println("This takes " + String.format("%.10f", duration) + " seconds to run");
+		for (int n = 0; n < length; n++) {
+			list[n] = rand.nextInt(100);
+			n++;
+		}
+		return list;
 	}
+
+
+
 
 }

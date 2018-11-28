@@ -2,6 +2,17 @@ package sorting;
 
 import java.util.ArrayList;
 
+/**
+ * Implementation of the Insertion sort algorithm
+ *
+ * Steps in Insertion sort
+ * 1) Start at the beginning of the array and compare the first two elements
+ * 2) Swap these elements if the second is smaller than the first.
+ * 3) These are then in the sorted array
+ * 4) Continue to do this
+ * 5) Sort new values into sorted array too
+ *
+ */
 public class InsertionSort extends Strategy {
 
 	@Override

@@ -1,9 +1,16 @@
 package sorting;
 
-public class BubbleSortAlgorithm extends Strategy {
-	/*
-	 * TODO 1) iterator pattern in parent class?
-	 */
+/**
+ * Implementation of the Bubble sort algorithm
+ *
+ * Steps in Bubble sort
+ * 1) Start at the beginning of the array and compare the first two elements
+ * 2) Swap these elements if the second is smaller than the first.
+ * 3) Repeat this process until the list is sorted
+ *
+ */
+public class BubbleSort extends Strategy {
+
 
 	@Override
 	public int[] sort(int[] listToSort) {

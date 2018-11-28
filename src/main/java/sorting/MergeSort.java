@@ -1,5 +1,13 @@
 package sorting;
 
+/**
+ * Implementation of the Merge sort algorithm
+ *
+ * Steps in Merge sort
+ * 1) Divide the arrays into halves until they are at their smallest
+ * 2) Iteratively merge these back together in order
+ *
+ */
 public class MergeSort extends Strategy {
 
 	private static int[] merge(int[] a, int[] b) {
