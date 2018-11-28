@@ -2,13 +2,13 @@ package structures;
 
 import java.util.Map;
 
-public class HashMap<X, Y> {
+public class BasicHashMap<X, Y> {
 
     private int capacity;
     private HashEntry[] values;
     private int size;
 
-    public HashMap(int tableSize) {
+    public BasicHashMap(int tableSize) {
         this.capacity = tableSize;
         this.values = new HashEntry[this.capacity];
     }
@@ -42,7 +42,7 @@ public class HashMap<X, Y> {
 
 
     public int calculateHash(X key) {
-        int hash = key.hashCode() % this.capacity;
+        int hash = Math.abs(key.hashCode() % this.capacity);
         while(values[hash] != null && !values[hash].getKey().equals(key)) {
             hash = (hash + 1) % this.capacity;
         }
